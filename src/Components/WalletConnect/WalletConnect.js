@@ -1,7 +1,7 @@
 import React from 'react';
 import { useWeb3React } from '@web3-react/core'
 import { ConnectorId, useWalletModal } from '@pantherswap-libs/uikit'
-import { injected, walletconnect } from '../../connectors'
+import { injected, bsc, walletconnect } from '../../connectors'
 import Navbar from "../Navbar/Navbar"
 
 const WalletConnect = () => {
@@ -11,6 +11,9 @@ const WalletConnect = () => {
         console.log("connectorId=>", connectorId)
         if (connectorId === 'walletconnect') {
           return activate(walletconnect)
+        }
+        else if(connectorId === 'bsc') {
+            return activate(bsc)
         }
         return activate(injected)
     }

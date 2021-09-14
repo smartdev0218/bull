@@ -1,8 +1,8 @@
 import React from 'react';
 import { useWeb3React } from '@web3-react/core'
-import Navbar from '../Navbar/Navbar';
 import { ConnectorId, useWalletModal } from '@pantherswap-libs/uikit'
 import { injected, walletconnect } from '../../connectors'
+import Navbar from "../Navbar/Navbar"
 
 const WalletConnect = () => {
     const { account, activate, deactivate } = useWeb3React()
@@ -18,7 +18,7 @@ const WalletConnect = () => {
     const { onPresentConnectModal } = useWalletModal(handleLogin, deactivate)
     
     return(
-        <Navbar shootProps = {onPresentConnectModal} />
+        <Navbar walletProps = {onPresentConnectModal} />
     )
 }
 

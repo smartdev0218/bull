@@ -4,7 +4,7 @@ import { Container, Row, Col } from "react-bootstrap";
 
 const Wrapper = styled.div`
   padding: 0px 100px;
-  padding-top: 110px;
+  padding-top: 10%;
   color: "var(--text-color)";
   .r-title {
     text-transform: uppercase;

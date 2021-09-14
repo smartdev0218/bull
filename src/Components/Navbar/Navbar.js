@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 import { GiHamburgerMenu } from "react-icons/gi";
 import Sidebar from "./Sidebar";
 import { Link } from "react-scroll";
-import { Button } from '@pantherswap-libs/uikit'
+import WalletConnect from "../WalletConnect/WalletConnect"
 // import "./style.css";
 
 const Wrapper = styled.div`
@@ -133,6 +133,7 @@ const Navbar = props => {
     },
     {
       text: "Connect",
+      url: "connect",
       ischecked: true,
     },
   ];
@@ -154,12 +155,12 @@ const Navbar = props => {
           >
             <div className="menu-container">
               {menuItem.map((el, i) => (
-                !el.ischecked? 
+                !el.ischecked?
                 <Link to={el.url} key={i}>
                   <NavLink activeClassName="active" to={el.url} >
                     {el.text}
                   </NavLink>
-                </Link> : <button className = "wallet_button" onClick = {props.shootProps}>Connect</button>
+                </Link> : <button type = "button" className = "wallet_button" onClick = {props.walletProps}>Connect</button>
               ))}
             </div>
             <GiHamburgerMenu
@@ -170,7 +171,7 @@ const Navbar = props => {
             />
           </Col>
         </Row>
-        {sidebar && <Sidebar menuItem={menuItem} showSidebar={showSidebar} />}
+        {sidebar && <Sidebar menuItem={menuItem} showSidebar={showSidebar}/>}
       </Container>
     </Wrapper>
   );

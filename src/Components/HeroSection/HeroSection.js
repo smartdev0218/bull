@@ -10,7 +10,7 @@ const Wrapper = styled.div`
   
   text-transform: uppercase;
   padding:0px 100px;
-  padding-top: 200px;
+  padding-top: 15%;
 
   display: flex;
   justify-content: center;

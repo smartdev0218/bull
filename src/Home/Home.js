@@ -15,7 +15,6 @@ const Home = () => {
   return (
     <Wrapper>
       <Navbar />
-
       <HeroSection />
       <HowItWorks />
       <RoadMap />

@@ -4,6 +4,9 @@ import { Container, Row, Col } from "react-bootstrap";
 import { IoMdClose } from "react-icons/io";
 import { NavLink } from "react-router-dom";
 import { Link } from "react-scroll";
+import { useWeb3React } from '@web3-react/core'
+import { ConnectorId, useWalletModal } from '@pantherswap-libs/uikit'
+import { injected, walletconnect } from '../../connectors'
 
 const Wrapper = styled.div`
   padding-bottom: 40px;
@@ -39,6 +42,19 @@ const Wrapper = styled.div`
 
 const Sidebar = (props) => {
   const { menuItem, showSidebar } = props;
+
+  const { account, activate, deactivate } = useWeb3React()
+
+    const handleLogin = (connectorId : ConnectorId) => {
+        console.log("connectorId=>", connectorId)
+        if (connectorId === 'walletconnect') {
+          return activate(walletconnect)
+        }
+        return activate(injected)
+    }
+
+  const { onPresentConnectModal } = useWalletModal(handleLogin, deactivate)
+
   return (
     <Wrapper>
       <div className="sidebar-container">
@@ -47,11 +63,12 @@ const Sidebar = (props) => {
         </div>
         <div className="sidebar">
           {menuItem.map((el, i) => (
+            !el.ischecked?
             <Link to={el.url} onClick={showSidebar}>
               <NavLink activeClassName="active" to={el.url} key={i}>
                 {el.text}
               </NavLink>
-            </Link>
+            </Link> : <a href = "#" onClick = {onPresentConnectModal}>Connect</a>
           ))}
         </div>
       </div>

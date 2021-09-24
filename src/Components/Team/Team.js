@@ -4,7 +4,7 @@ import { Container, Row, Col } from "react-bootstrap";
 
 const Wrapper = styled.div`
   color: var(--text-color);
-  padding:0px 100px;
+  padding:120px 100px;
   .t-title {
     text-transfomr: uppercase;
     font-size:40px ;
@@ -13,7 +13,7 @@ const Wrapper = styled.div`
     font-style: italic;
   }
   .box {
-    height: 80px;
+    height: 100px;
     width: 100px;
     border-radius:8px;
     background: var(--main-color);

@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 import { GiHamburgerMenu } from "react-icons/gi";
 import Sidebar from "./Sidebar";
 import { Link } from "react-scroll";
-import WalletConnect from "../WalletConnect/WalletConnect"
+import { useWeb3React } from '@web3-react/core'
 // import "./style.css";
 
 const Wrapper = styled.div`
@@ -55,6 +55,9 @@ const Wrapper = styled.div`
     border: none;
     border-radius: 10px;
     box-shadow: 0 7px #999;
+    width : 125px;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   
   .wallet_button:hover {background-color: #c38e0d}
@@ -138,6 +141,8 @@ const Navbar = props => {
     },
   ];
 
+  const { account } = useWeb3React()
+
   return (
     <Wrapper>
       <Container fluid className="py-3 navbars" xs={11}>
@@ -160,7 +165,8 @@ const Navbar = props => {
                   <NavLink activeClassName="active" to={el.url} >
                     {el.text}
                   </NavLink>
-                </Link> : <button type = "button" className = "wallet_button" onClick = {props.walletProps}>Connect</button>
+                </Link> : ( ! account ? <button type = "button" className = "wallet_button" onClick = {props.walletProps}> Connect </button> 
+                              : <button type = "button" className = "wallet_button" disabled>{ account }</button> )
               ))}
             </div>
             <GiHamburgerMenu

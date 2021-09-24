@@ -53,7 +53,7 @@ const Sidebar = (props) => {
         return activate(injected)
     }
 
-  const { onPresentConnectModal } = useWalletModal(handleLogin, deactivate)
+  const { onPresentConnectModal } = useWalletModal(handleLogin, deactivate, account)
 
   return (
     <Wrapper>

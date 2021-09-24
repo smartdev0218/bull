@@ -3,8 +3,7 @@ import styled from "styled-components";
 import { Container, Row, Col } from "react-bootstrap";
 
 const Wrapper = styled.div`
-  padding: 0px 100px;
-  padding-top: 10%;
+  padding: 120px 100px;
   color: "var(--text-color)";
   .r-title {
     text-transform: uppercase;
@@ -26,6 +25,8 @@ const Wrapper = styled.div`
     color: var(--text-color);
     font-family: "Roboto", sans-serif;
     font-style: italic;
+    width: 60px;
+    height: 60px;
   }
   .r-text-container {
     display: flex;
@@ -43,8 +44,8 @@ const Wrapper = styled.div`
   }
   @media only screen and (max-width: 991px) {
     padding: 0px 10px;
-    padding-top: 50px;
-    .r-text-contaner {
+    padding-top: 120px;
+    .r-text-container {
       margin: 10px;
     }
 
@@ -85,6 +86,7 @@ const RoadMap = () => {
     },
   ];
   return (
+    <>
     <Wrapper id="roadmap">
       <Container fluid>
         <h3 className="r-title">Roadmap</h3>
@@ -107,9 +109,10 @@ const RoadMap = () => {
             })}
           </div>
         </Col>
-        <hr />
       </Container>
     </Wrapper>
+    <hr/>
+    </>
   );
 };
 

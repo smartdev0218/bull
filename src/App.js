@@ -1,33 +1,36 @@
-import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./Home/Home";
+import Navbar from "./Components/Navbar/Navbar"
 import MyBulls from "./Components/MyBulls/MyBulls"
+import WalletConnect from "./Components/WalletConnect/WalletConnect";
 
 function App() {
   return (
-    <Router>
+    <>
+      <Navbar />
+      <WalletConnect />
       <Switch>
         <Route exact path="/">
           <Home />
         </Route>
-        <Route exact path="/mybulls">
+        <Route path="/mybulls">
           <MyBulls />
         </Route>
-        <Route exact path="/buyabull">
+        <Route path="/buyabull">
           <Home />
         </Route>
-        <Route exact path="/howitworks">
+        <Route path="/howitworks">
           <Home />
         </Route>
-        <Route exact path="/roadmap">
+        <Route path="/roadmap">
           <Home />
         </Route>
-        <Route exact path="/team">
+        <Route path="/team">
           <Home />
         </Route>
       </Switch>
-    </Router>
+    </>
   );
 }
 

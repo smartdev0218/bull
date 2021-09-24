@@ -4,8 +4,7 @@ import { Container, Row, Col } from "react-bootstrap";
 
 const Wrapper = styled.div`
 
-  padding: 0px 100px;
-  padding-top: 10%;
+  padding: 120px 100px;
   
   color: var(--text-color);
   
@@ -19,7 +18,9 @@ const Wrapper = styled.div`
     font-style: italic;
   }
   .h-image {
-    height: 220px;
+    width: 400px;
+    height: 400px;
+    
     background: var(--main-color);
     border-radius: 8px;
   }
@@ -33,12 +34,13 @@ const Wrapper = styled.div`
   }
   @media only screen and (max-width: 435px) {
     padding: 0 10px;
-    padding-top: 110px;
+    padding-top: 120px;
   }
 `;
 
 const HowItWorks = () => {
   return (
+    <>
     <Wrapper id="howitworks">
       <Container fluid>
         <Row className="align-items-center">
@@ -63,9 +65,10 @@ const HowItWorks = () => {
             </div>
           </Col>
         </Row>
-        <hr />
       </Container>
     </Wrapper>
+    <hr/>
+    </>
   );
 };
 

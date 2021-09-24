@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 import { Container, Row, Col } from "react-bootstrap";
 import { FiPlus, FiMinus } from "react-icons/fi";
@@ -9,8 +8,7 @@ const Wrapper = styled.div`
   width: 100vw;
   
   text-transform: uppercase;
-  padding:0px 100px;
-  padding-top: 15%;
+  padding: 120px 100px;
 
   display: flex;
   justify-content: center;
@@ -19,7 +17,8 @@ const Wrapper = styled.div`
   .hero-div {
     background: var(--main-color);
     border-radius: 5px;
-    height: 100px;
+    width: 140px;
+    height: 140px;
   }
   .hero-div img {
     width: 100%;
@@ -38,8 +37,6 @@ const Wrapper = styled.div`
   .subtitle {
     font-size: 18px;
     text-transform: uppercase;
- 
- 
   }
   .hero-footer {
     background: var(--main-color);
@@ -48,7 +45,6 @@ const Wrapper = styled.div`
     text-align: center;
     padding:12px 0;
     margin-top:40px;
-  
   }
   .hero-footer p{
     font-family: 'Roboto', sans-serif;
@@ -63,20 +59,17 @@ const Wrapper = styled.div`
     border: 5px solid #000;
     padding: 4px 15px;
   }
-  }
   .borders-left {
     border: 5px solid #000;
     border-right: 0;
     cursor: pointer;
     padding: 4px 15px;
   }
-  }
   .borders-right {
     border: 5px solid #000;
     border-left: 0;
     cursor: pointer;
     padding: 4px 15px;
-  }
   }
   .icon img {
     width: 100px;
@@ -90,7 +83,6 @@ const Wrapper = styled.div`
     padding: 16px 22px;
     border-radius:5px;
     font-weight:700;
-   
   }
   @media only screen and (max-width: 991px) {
     padding: 0px 10px;
@@ -104,11 +96,9 @@ const Wrapper = styled.div`
   
     padding: 4px 4px;
   }
-  }
   .borders-left {
    
     padding: 8px 4px;
-  }
   }
   .borders-right {
   
@@ -122,7 +112,6 @@ const Wrapper = styled.div`
       padding:12px 10px ;
   }
 
-  }
   @media only screen and (max-width: 767px) {
       margin-top:180px;
   }
@@ -130,16 +119,12 @@ const Wrapper = styled.div`
       margin-top:220px;
   }
   @media only screen and (max-width: 435px) {
-    margin-top:270px;
     padding:0 10px;
+    padding-top: 120px;
       .button{
           padding:4px 15px;
       }
   }
-  
-
-  
-
 `;
 
 const HeroSection = () => {
@@ -152,6 +137,7 @@ const HeroSection = () => {
     setMint((prev) => prev - 1);
   };
   return (
+    <>
     <Wrapper id="buyabull">
       <Container fluid>
         <Row>
@@ -256,9 +242,10 @@ const HeroSection = () => {
         <p className="py-2 text-center">
           VERIFIED SMART CONTRACT ADDRESS: 0x0000000000000000
         </p>
-        <hr />
       </Container>
     </Wrapper>
+    <hr/>
+    </>
   );
 };
 

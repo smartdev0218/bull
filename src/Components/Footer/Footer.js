@@ -10,7 +10,7 @@ import { Link } from "react-scroll";
 const Wrapper = styled.div`
   background: var(--main-color);
   color: var(--text-color);
-  padding: 20px 0;
+  padding: 120px 100px;
   font-family: "Roboto", sans-serif;
   font-style: italic;
   .social-container {

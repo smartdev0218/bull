@@ -8,7 +8,7 @@ const WalletConnect = () => {
     const { account, activate, deactivate } = useWeb3React()
 
     const handleLogin = (connectorId : ConnectorId) => {
-        console.log("connectorId=>", connectorId)
+        console.log("account=>", account)
         if (connectorId === 'walletconnect') {
           return activate(walletconnect)
         }

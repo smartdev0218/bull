@@ -7,6 +7,7 @@ import { Link } from "react-scroll";
 import { useWeb3React } from '@web3-react/core'
 import { ConnectorId, useWalletModal } from '@pantherswap-libs/uikit'
 import { injected, walletconnect } from '../../connectors'
+import WalletButton from "../WalletConnect/WalletConnect"
 
 const Wrapper = styled.div`
   padding-bottom: 40px;
@@ -38,22 +39,15 @@ const Wrapper = styled.div`
     padding: 30px 30px 10px 0px;
     cursor: pointer;
   }
+  .wallet_connect {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 150px;
+  }
 `;
 
 const Sidebar = (props) => {
   const { menuItem, showSidebar } = props;
-
-  const { account, activate, deactivate } = useWeb3React()
-
-    const handleLogin = (connectorId : ConnectorId) => {
-        console.log("connectorId=>", connectorId)
-        if (connectorId === 'walletconnect') {
-          return activate(walletconnect)
-        }
-        return activate(injected)
-    }
-
-  const { onPresentConnectModal } = useWalletModal(handleLogin, deactivate, account)
 
   return (
     <Wrapper>
@@ -68,7 +62,7 @@ const Sidebar = (props) => {
               <NavLink activeClassName="active" to={el.url} key={i}>
                 {el.text}
               </NavLink>
-            </Link> : <a href = "#" onClick = {onPresentConnectModal}>Connect</a>
+            </Link> : <WalletButton />
           ))}
         </div>
       </div>

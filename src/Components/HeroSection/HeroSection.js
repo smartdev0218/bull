@@ -2,7 +2,14 @@ import styled from "styled-components";
 import { Container, Row, Col } from "react-bootstrap";
 import { FiPlus, FiMinus } from "react-icons/fi";
 import { useState } from "react";
+import Web3 from "web3";
+import { withWeb3 } from 'react-web3-provider';
+import { bullsABI } from "../../ABI/bulls";
 import icon from "../../images/icon.png";
+import bull1 from "../../images/bull1.png";
+import bull2 from "../../images/bull2.png";
+import bull3 from "../../images/bull3.png";
+import bull4 from "../../images/bull4.png";
 
 const Wrapper = styled.div`
   width: 100vw;
@@ -14,13 +21,16 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   color: var(--text-color);
+  box-sizing: border-box;
   .hero-div {
-    background: var(--main-color);
-    border-radius: 5px;
-    width: 140px;
-    height: 140px;
+    
   }
   .hero-div img {
+    display: grid;
+    column-gap: 20px;
+    border-radius: 5px;
+    vertical-align: middle;
+    border-style: none;
     width: 100%;
   }
   .hero-text {
@@ -51,6 +61,7 @@ const Wrapper = styled.div`
     font-style:italic;
     font-weight:500;
     font-size:16px;
+    font-weight:700;
   }
   .hero-footer h4{
     font-weight:700;
@@ -130,12 +141,25 @@ const Wrapper = styled.div`
 const HeroSection = () => {
   const [mint, setMint] = useState(1);
   const increase = () => {
-    setMint((prev) => prev + 1);
+    if(mint < 20)
+      setMint((prev) => prev + 1);
   };
   const decrease = () => {
     if (mint <= 0) return;
     setMint((prev) => prev - 1);
   };
+
+  
+
+  const mintNFT = () => {
+    // var web3js = new Web3(Web3.currentProvider);
+    // var bullContract = new web3js.eth.Contract(bullsABI, "0xed83833056b8f8ceb76f9d885bfe3570eb7a938f");
+    // var userAccount = web3js.eth.accounts[0];
+    // bullContract.methods.adoptBinanceBull(mint).send({from : userAccount, value : web3js.utils.toWei("0.08", "ether")});
+    // alert(web3js);
+        
+  }
+
   return (
     <>
     <Wrapper id="buyabull">
@@ -151,37 +175,33 @@ const HeroSection = () => {
           >
             <Row>
               <Col xs={6}>
-                <div className="hero-div px-2 my-2">
+                <div className="hero-div my-2 my-2">
                   <img
-                    src="
-                "
+                    src={bull1}
                     alt=""
                   />
                 </div>
               </Col>
               <Col xs={6}>
-                <div className="hero-div px-2 my-2">
+                <div className="hero-div my-2 my-2">
                   <img
-                    src="
-                "
+                    src={bull2}
                     alt=""
                   />
                 </div>
               </Col>
               <Col xs={6}>
-                <div className="hero-div px-2 my-2">
+                <div className="hero-div my-2 my-2">
                   <img
-                    src="
-                "
+                    src={bull3}
                     alt=""
                   />
                 </div>
               </Col>
               <Col xs={6}>
-                <div className="hero-div px-2 my-2">
+                <div className="hero-div my-2 my-2">
                   <img
-                    src="
-                "
+                    src={bull4}
                     alt=""
                   />
                 </div>
@@ -209,7 +229,7 @@ const HeroSection = () => {
           <Col md={0} lg={1}></Col>
         </Row>
         <div className="hero-footer">
-          <p>The sale has started.Select how many you would like to mint</p>
+          <p>Select how many you would like to mint</p>
           <Row className="middeling">
             <Col md={4} lg={4}>
               <h4 className="py-3 py-lg-0">become bulish</h4>
@@ -229,7 +249,7 @@ const HeroSection = () => {
                 </Col>
                 <Col xs={3} sm={3} md={6} className="px-2 buttons">
                   {" "}
-                  <button className="button ">MINIT NOW</button>
+                  <button className="button" onClick = {mintNFT}>MINT NOW</button>
                 </Col>
               </Row>
             </Col>
@@ -237,14 +257,14 @@ const HeroSection = () => {
               <img src={icon} alt="#" />
             </Col>
           </Row>
-          <h5>Metting cost 0.15 Bnb</h5>
+          <h5>Current Mint Price: 0.08 BEP-20 BNB</h5>
         </div>
         <p className="py-2 text-center">
           VERIFIED SMART CONTRACT ADDRESS: 0x0000000000000000
         </p>
       </Container>
     </Wrapper>
-    <hr/>
+    {/* <hr/> */}
     </>
   );
 };

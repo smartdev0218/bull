@@ -6,6 +6,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import Sidebar from "./Sidebar";
 import { Link } from "react-scroll";
 import { useWeb3React } from '@web3-react/core'
+import WalletButton from "../WalletConnect/WalletConnect"
 // import "./style.css";
 
 const Wrapper = styled.div`
@@ -26,7 +27,7 @@ const Wrapper = styled.div`
     text-decoration: none;
     text-transform: uppercase;
   }
-  .menu-container a {
+  .menu-container a{
     color: var(--text-color);
     text-decoration: none;
     font-size: 18px;
@@ -34,7 +35,6 @@ const Wrapper = styled.div`
     font-style: italic;
     padding: 10px 12px;
   }
-
   .hamburger {
     display: none;
     cursor: pointer;
@@ -42,7 +42,7 @@ const Wrapper = styled.div`
   .wallet_button {
     text-transform: uppercase;
     display: inline-block;
-    padding: 5px 20px;
+    padding: 8px 20px;
     font-size: 18px;
     font-family: "Roboto", sans-serif;
     font-style: italic;
@@ -53,8 +53,7 @@ const Wrapper = styled.div`
     color: #fff;
     background-color: #f3ba2f;
     border: none;
-    border-radius: 10px;
-    box-shadow: 0 7px #999;
+    border-radius: 8px;
     width : 125px;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -62,11 +61,6 @@ const Wrapper = styled.div`
   
   .wallet_button:hover {background-color: #c38e0d}
   
-  .wallet_button:active {
-    background-color: #c38e0d;
-    box-shadow: 0 5px #666;
-    transform: translateY(4px);
-  }
   
   @media only screen and (max-width: 991px) {
     .navbars {
@@ -165,8 +159,7 @@ const Navbar = props => {
                   <NavLink activeClassName="active" to={el.url} >
                     {el.text}
                   </NavLink>
-                </Link> : ( ! account ? <button type = "button" className = "wallet_button" onClick = {props.walletProps}> Connect </button> 
-                              : <button type = "button" className = "wallet_button" disabled>{ account }</button> )
+                </Link> : <WalletButton />
               ))}
             </div>
             <GiHamburgerMenu

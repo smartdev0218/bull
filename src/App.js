@@ -3,13 +3,11 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./Home/Home";
 import Navbar from "./Components/Navbar/Navbar"
 import MyBulls from "./Components/MyBulls/MyBulls"
-import WalletConnect from "./Components/WalletConnect/WalletConnect";
 
 function App() {
   return (
     <>
       <Navbar />
-      <WalletConnect />
       <Switch>
         <Route exact path="/">
           <Home />

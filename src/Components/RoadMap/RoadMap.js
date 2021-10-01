@@ -19,14 +19,16 @@ const Wrapper = styled.div`
   }
   .percent {
     width: 100%;
+    
     padding: 15px 20px;
     background: var(--main-color);
     border-radius: 8px;
     color: var(--text-color);
     font-family: "Roboto", sans-serif;
     font-style: italic;
-    width: 60px;
-    height: 60px;
+    height: 0;
+    padding-top: 50%;
+    padding-bottom: 50%;
   }
   .r-text-container {
     display: flex;
@@ -64,25 +66,29 @@ const Wrapper = styled.div`
 const RoadMap = () => {
   const roadmapArray = [
     {
-      text: "5 Bulls will be randomly dirdropped to our early adopters Begin social media marketing push & banner advertisments ",
-      percent: "10%",
+      text: "There will be a five bull random airdrop for early adopters. We will begin pushing our social media marketing as well as banner advertisements to promote Binance Bulls.",
+      percent: "10 %",
     },
     {
-      text: "20,000 Donation with the help of the community choosing what organization allocate the money too Partner with secondary marketplace",
-      percent: "50%",
+      text: "We will be looking for a marketplace partnership as well as $3,000 dropped into the community wallet. (The community of Binance Bulls will be deciding on how the $3,000 is spent, such as giveaways, donations, advertisements and more.)",
+      percent: "25 %",
+    },
+    {
+      text: "We plan on having a $3,000 donation decided by the community of Binance Bulls as well as a $2,000 BNB giveaway.",
+      percent: "50 %",
     },
 
     {
-      text: "Exclusive Binance Bull Merch will be released (T Shirts, Hoodies & More) $5,000 BNB Giveaway ",
-      percent: "75%",
+      text: "Exclusive Binance Bull Merch will be released, such as T-Shirts, Hoodies, and more!",
+      percent: "75 %",
     },
     {
-      text: " Community grant/wallet is launched with $25,000    Bull Marketplace Released ",
-      percent: "90%",
+      text: "Introduce the Binance Bull Lottery as well as a custom reflection BNB marketplace.",
+      percent: "90 %",
     },
     {
-      text: "Community grant/wallet is launched with $25,000 Bull Marketplace Released",
-      percent: "90%",
+      text: "$10,000 will be dropped into the community wallet. (The community of Binance bulls will be decided on how the $10,000 is spent, such as giveaways, donations, advertisements and more.",
+      percent: "100%",
     },
   ];
   return (
@@ -111,7 +117,7 @@ const RoadMap = () => {
         </Col>
       </Container>
     </Wrapper>
-    <hr/>
+    {/* <hr/> */}
     </>
   );
 };

@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Container, Row, Col } from "react-bootstrap";
+import gif from "../../images/gif.gif";
 
 const Wrapper = styled.div`
 
@@ -18,13 +19,11 @@ const Wrapper = styled.div`
     font-style: italic;
   }
   .h-image {
-    width: 400px;
-    height: 400px;
     
-    background: var(--main-color);
-    border-radius: 8px;
   }
   .h-image img {
+    border-radius: 5px;
+    width: 100%;
   }
   @media only screen and (max-width: 991px) {
     padding: 0px 10px;
@@ -61,13 +60,13 @@ const HowItWorks = () => {
           </Col>
           <Col md={4}>
             <div className="h-image">
-              <img src="" alt="" />
+              <img src={gif} alt="" />
             </div>
           </Col>
         </Row>
       </Container>
     </Wrapper>
-    <hr/>
+    {/* <hr/> */}
     </>
   );
 };

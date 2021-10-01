@@ -1,10 +1,15 @@
 import React from "react";
 import styled from "styled-components";
 import { Container, Row, Col } from "react-bootstrap";
+import ox from "../../images/ox.png";
+import jake from "../../images/jake.png";
 
 const Wrapper = styled.div`
-  color: var(--text-color);
+  
   padding:120px 100px;
+  
+  color: var(--text-color);  
+  
   .t-title {
     text-transfomr: uppercase;
     font-size:40px ;
@@ -12,19 +17,16 @@ const Wrapper = styled.div`
     font-family: "Roboto", sans-serif;
     font-style: italic;
   }
-  .box {
-    height: 100px;
-    width: 100px;
+  .box img{
+    width: 120px;
     border-radius:8px;
-    background: var(--main-color);
   }
   .team-text{
       font-size:25px;
       margin-left:15px !important;
       font-family: "Roboto", sans-serif;
-    font-style: italic;
-    font-weight:700;
-    
+      font-style: italic;
+      font-weight:700;
   }
   .position{
     font-size:14px;
@@ -32,53 +34,56 @@ const Wrapper = styled.div`
   }
   
 }
-@media only screen and (max-width: 576px) {
+
+@media only screen and (max-width: 435px) {
+  padding: 120px 10px;
   .box {
-    height: 60px;
-    width: 70px;
+    width: 120px;
     border-radius:8px;
     background: var(--main-color);
   }
   .team-text{
     font-size:15px;
-
-     
   }
   .position{
     font-size:11px;
   }
-  
-
+  .style1 {
+    flex: 100%;
+    padding-bottom: 20px;
+  }
+  .style2 {
+    flex: 100%;
+  }
 }
 `;
 
 const Team = () => {
   return (
     <Wrapper id="team">
-      <Container>
+      <Container fluid>
         <h3 className="t-title">The Team</h3>
         <p className="py-4">
           Binance Bulls was created by two friends that have a love for the
           Binance Smart Chain ecosystem & have a love <br /> for art.
         </p>
         <Row className="py-4">
-          <Col xs="6" sm="6" className="d-flex">
+          <Col xs="6" sm="6" className="d-flex style1">
             <div className="box">
-              <img src="" alt="" />
+              <img src={ox} alt="" />
             </div>
-
             <p className="team-text">
-              Ox <br />
-              <span className="position">Artist And Devlopers</span>
+              The Ox <br />
+              <span className="position">Founder & Artist</span>
             </p>
           </Col>
-          <Col xs="6" sm="6" className="d-flex">
+          <Col xs="6" sm="6" className="d-flex style2">
             <div className="box">
-              <img src="" alt="" />
+              <img src={jake} alt="" />
             </div>
             <p className="team-text">
-              Crypto Jake <br />{" "}
-              <span className="position">Marketing Manager</span>
+              BP <br />{" "}
+              <span className="position">Developer</span>
             </p>
           </Col>
         </Row>
